@@ -1,0 +1,27 @@
+mode: count
+github.com/nvnamsss/prpcl/services/wager.go:28.114,34.82 2 3
+github.com/nvnamsss/prpcl/services/wager.go:39.2,42.62 3 2
+github.com/nvnamsss/prpcl/services/wager.go:47.2,52.18 5 1
+github.com/nvnamsss/prpcl/services/wager.go:34.82,37.3 2 1
+github.com/nvnamsss/prpcl/services/wager.go:42.62,45.3 2 1
+github.com/nvnamsss/prpcl/services/wager.go:55.108,67.16 5 6
+github.com/nvnamsss/prpcl/services/wager.go:72.2,72.18 1 5
+github.com/nvnamsss/prpcl/services/wager.go:77.2,77.49 1 4
+github.com/nvnamsss/prpcl/services/wager.go:82.2,82.75 1 3
+github.com/nvnamsss/prpcl/services/wager.go:87.2,89.84 3 2
+github.com/nvnamsss/prpcl/services/wager.go:94.2,98.18 4 1
+github.com/nvnamsss/prpcl/services/wager.go:67.16,70.3 2 1
+github.com/nvnamsss/prpcl/services/wager.go:72.18,75.3 2 1
+github.com/nvnamsss/prpcl/services/wager.go:77.49,80.3 2 1
+github.com/nvnamsss/prpcl/services/wager.go:82.75,85.3 2 1
+github.com/nvnamsss/prpcl/services/wager.go:89.84,92.3 2 1
+github.com/nvnamsss/prpcl/services/wager.go:101.115,103.16 2 2
+github.com/nvnamsss/prpcl/services/wager.go:108.2,109.27 2 1
+github.com/nvnamsss/prpcl/services/wager.go:122.2,122.18 1 1
+github.com/nvnamsss/prpcl/services/wager.go:103.16,106.3 2 1
+github.com/nvnamsss/prpcl/services/wager.go:109.27,113.28 4 2
+github.com/nvnamsss/prpcl/services/wager.go:116.3,116.24 1 2
+github.com/nvnamsss/prpcl/services/wager.go:119.3,119.26 1 2
+github.com/nvnamsss/prpcl/services/wager.go:113.28,115.4 1 2
+github.com/nvnamsss/prpcl/services/wager.go:116.24,118.4 1 2
+github.com/nvnamsss/prpcl/services/wager.go:127.38,133.2 1 0

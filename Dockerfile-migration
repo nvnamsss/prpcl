@@ -1,0 +1,11 @@
+FROM golang as builder
+
+ADD src/migrations /go/src/migrations
+ADD scripts/migration.sh /go/scripts/migration.sh
+ADD Makefile /go/
+
+WORKDIR /go
+
+RUN CGO_ENABLED=0 go get -u github.com/pressly/goose/cmd/goose
+
+ENTRYPOINT make migrate

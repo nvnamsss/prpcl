@@ -1,0 +1,169 @@
+basePath: /prpcl/v1
+definitions:
+  dtos.BuyWagerRequest:
+    properties:
+      buying_price:
+        type: number
+    type: object
+  dtos.BuyWagerResponse:
+    properties:
+      bought_at:
+        type: integer
+      buying_price:
+        type: number
+      id:
+        type: integer
+      wager_id:
+        type: integer
+    type: object
+  dtos.ListWagersRequest:
+    properties:
+      cursor:
+        type: integer
+      place:
+        type: integer
+    type: object
+  dtos.ListWagersResponse:
+    properties:
+      amount_sold:
+        type: integer
+      current_selling_price:
+        type: number
+      id:
+        type: integer
+      odds:
+        type: integer
+      percentage_sold:
+        type: number
+      placed_at:
+        type: integer
+      selling_percentage:
+        type: number
+      selling_price:
+        type: number
+      total_wager_value:
+        type: number
+    type: object
+  dtos.PlaceWagerRequest:
+    properties:
+      odds:
+        type: integer
+      selling_percentage:
+        type: integer
+      selling_price:
+        type: number
+      total_wager_value:
+        type: number
+    type: object
+  errors.AppError:
+    properties:
+      error:
+        type: string
+    type: object
+info:
+  contact:
+    email: nvnam.c@gmail.com
+    name: Nam Nguyen
+  description: prpcl API documentation
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: prpcl
+  version: "1.0"
+paths:
+  /buy/:id:
+    post:
+      consumes:
+      - application/json
+      description: Buy wager
+      parameters:
+      - description: wager id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: body
+        in: body
+        name: values
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.BuyWagerRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.BuyWagerResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/errors.AppError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/errors.AppError'
+      summary: Buy wager
+      tags:
+      - Wagers
+  /wagers:
+    get:
+      consumes:
+      - application/json
+      description: List wagers
+      parameters:
+      - in: query
+        name: cursor
+        type: integer
+      - in: query
+        name: place
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.ListWagersResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/errors.AppError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/errors.AppError'
+      summary: List wagers
+      tags:
+      - Wagers
+    post:
+      consumes:
+      - application/json
+      description: Place wager
+      parameters:
+      - description: body
+        in: body
+        name: values
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.PlaceWagerRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.ListWagersResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/errors.AppError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/errors.AppError'
+      summary: Place wager
+      tags:
+      - Wagers
+swagger: "2.0"

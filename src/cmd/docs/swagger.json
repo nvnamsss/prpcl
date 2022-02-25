@@ -1,0 +1,259 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "prpcl API documentation",
+        "title": "prpcl",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "Nam Nguyen",
+            "email": "nvnam.c@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "basePath": "/prpcl/v1",
+    "paths": {
+        "/buy/:id": {
+            "post": {
+                "description": "Buy wager",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Wagers"
+                ],
+                "summary": "Buy wager",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "wager id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "body",
+                        "name": "values",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dtos.BuyWagerRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.BuyWagerResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/errors.AppError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/errors.AppError"
+                        }
+                    }
+                }
+            }
+        },
+        "/wagers": {
+            "get": {
+                "description": "List wagers",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Wagers"
+                ],
+                "summary": "List wagers",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "cursor",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "place",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ListWagersResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/errors.AppError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/errors.AppError"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Place wager",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Wagers"
+                ],
+                "summary": "Place wager",
+                "parameters": [
+                    {
+                        "description": "body",
+                        "name": "values",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dtos.PlaceWagerRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ListWagersResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/errors.AppError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/errors.AppError"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "dtos.BuyWagerRequest": {
+            "type": "object",
+            "properties": {
+                "buying_price": {
+                    "type": "number"
+                }
+            }
+        },
+        "dtos.BuyWagerResponse": {
+            "type": "object",
+            "properties": {
+                "bought_at": {
+                    "type": "integer"
+                },
+                "buying_price": {
+                    "type": "number"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "wager_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "dtos.ListWagersRequest": {
+            "type": "object",
+            "properties": {
+                "cursor": {
+                    "type": "integer"
+                },
+                "place": {
+                    "type": "integer"
+                }
+            }
+        },
+        "dtos.ListWagersResponse": {
+            "type": "object",
+            "properties": {
+                "amount_sold": {
+                    "type": "integer"
+                },
+                "current_selling_price": {
+                    "type": "number"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "odds": {
+                    "type": "integer"
+                },
+                "percentage_sold": {
+                    "type": "number"
+                },
+                "placed_at": {
+                    "type": "integer"
+                },
+                "selling_percentage": {
+                    "type": "number"
+                },
+                "selling_price": {
+                    "type": "number"
+                },
+                "total_wager_value": {
+                    "type": "number"
+                }
+            }
+        },
+        "dtos.PlaceWagerRequest": {
+            "type": "object",
+            "properties": {
+                "odds": {
+                    "type": "integer"
+                },
+                "selling_percentage": {
+                    "type": "integer"
+                },
+                "selling_price": {
+                    "type": "number"
+                },
+                "total_wager_value": {
+                    "type": "number"
+                }
+            }
+        },
+        "errors.AppError": {
+            "type": "object",
+            "properties": {
+                "error": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

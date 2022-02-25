@@ -1,0 +1,39 @@
+=== RUN   Test_wagerService_Place
+=== RUN   Test_wagerService_Place/good
+=== RUN   Test_wagerService_Place/sell_below_percentage
+{"level":"error","ts":1645758702.357804,"caller":"services/wager_test.go:92","msg":"selling_price must be greater than total_wager_value * (selling_percentage / 100)"}
+=== RUN   Test_wagerService_Place/create_error
+{"level":"error","ts":1645758702.3579938,"caller":"services/wager_test.go:92","msg":"create wager got error :just an error"}
+--- PASS: Test_wagerService_Place (0.00s)
+    --- PASS: Test_wagerService_Place/good (0.00s)
+    --- PASS: Test_wagerService_Place/sell_below_percentage (0.00s)
+    --- PASS: Test_wagerService_Place/create_error (0.00s)
+=== RUN   Test_wagerService_Buy
+=== RUN   Test_wagerService_Buy/good
+=== RUN   Test_wagerService_Buy/wager_not_found
+{"level":"error","ts":1645758702.3589272,"caller":"services/wager_test.go:271","msg":"wager 0 not found"}
+=== RUN   Test_wagerService_Buy/get_wager_error
+{"level":"error","ts":1645758702.3591707,"caller":"services/wager_test.go:271","msg":"get wager 0 got error: just an error"}
+=== RUN   Test_wagerService_Buy/buy_error
+{"level":"error","ts":1645758702.3595557,"caller":"services/wager_test.go:271","msg":"buy got error: just an error"}
+=== RUN   Test_wagerService_Buy/cannot_buy_more
+{"level":"error","ts":1645758702.3598123,"caller":"services/wager_test.go:271","msg":"cannot buy wager 1 (1200 - 1000)"}
+=== RUN   Test_wagerService_Buy/create_transaction_error
+{"level":"error","ts":1645758702.3602235,"caller":"services/wager_test.go:271","msg":"create transaction got error: just an error"}
+--- PASS: Test_wagerService_Buy (0.00s)
+    --- PASS: Test_wagerService_Buy/good (0.00s)
+    --- PASS: Test_wagerService_Buy/wager_not_found (0.00s)
+    --- PASS: Test_wagerService_Buy/get_wager_error (0.00s)
+    --- PASS: Test_wagerService_Buy/buy_error (0.00s)
+    --- PASS: Test_wagerService_Buy/cannot_buy_more (0.00s)
+    --- PASS: Test_wagerService_Buy/create_transaction_error (0.00s)
+=== RUN   Test_wagerService_List
+=== RUN   Test_wagerService_List/good
+=== RUN   Test_wagerService_List/list_error
+{"level":"error","ts":1645758702.36064,"caller":"services/wager_test.go:343","msg":"find wagers got error: just an error"}
+--- PASS: Test_wagerService_List (0.00s)
+    --- PASS: Test_wagerService_List/good (0.00s)
+    --- PASS: Test_wagerService_List/list_error (0.00s)
+PASS
+coverage: 98.2% of statements
+ok  	github.com/nvnamsss/prpcl/services	0.035s	coverage: 98.2% of statements
